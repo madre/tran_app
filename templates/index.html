@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>聚译——翻译合集</title>
+        <meta name="renderer" content="webkit"><!--360webkit model-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="../static/js/jquery.min.js"></script>
+		<script src="../static/js/jquery.scrollzer.min.js"></script>
+		<script src="../static/js/jquery.scrolly.min.js"></script>
+		<script src="../static/js/skel.min.js"></script>
+		<script src="../static/js/skel-layers.min.js"></script>
+		<script src="../static/js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="../static/css/skel.css" />
+			<link rel="stylesheet" href="../static/css/style.css" />
+			<link rel="stylesheet" href="../static/css/style-xlarge.css" />
+		</noscript>
+        <link rel="shortcut icon" href="../static/favicon.ico">
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+		<div id="wrapper">
+
+			<!-- Header -->
+				<section id="header" class="skel-layers-fixed">
+					<header>
+						<span class="image avatar"><img src="../static/images/yi.png" alt="译" /></span>
+						<!-- <h1 id="logo"><a href="#">聚译</a></h1> -->
+						<p>好奇易，专注难，<br />
+						二者兼得可成事。</p>
+					</header>
+					<nav id="nav">
+						<ul>
+							<li><a href="#one" class="active">关于</a></li>
+							<li><a href="#two">项目</a></li>
+							<li><a href="#three">工具</a></li>
+							<li><a href="#four">译者</a></li>
+							<li><a href="#five">联系</a></li>
+						</ul>
+					</nav>
+					<footer>
+						<ul class="icons">
+							<li><a href="https://github.com/madre" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="mailto:lingnck@163.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</footer>
+				</section>
+
+			<!-- Main -->
+				<div id="main">
+
+					<!-- One -->
+						<section id="one">
+							<div class="container">
+								<header class="major">
+									<h2>聚译</h2>
+									<p>Many littles make a big difference. </p>
+									<p>译事三难：信、达、雅。</p>
+								</header>
+								<p>信者，真也，真者，不伪也；达者，至也，至者，无过无不及也；雅者，文学性也，文学性者，当雅则雅当俗则俗也。求其信已大难矣，顾信矣不达，虽译犹不译也，则达尚焉。</p>
+							</div>
+						</section>
+						
+					<!-- Two -->
+						<section id="two">
+							<div class="container">
+								<h3>项目列表</h3>
+								<p>正在翻译中的项目</p>
+								<div class="features">
+                                    {% for each in project %}
+                                    <article>
+										<a href="#" class="image"><img src="{{ MEDIA_URL }}{{ each.img }}" alt="" /></a>
+										<div class="inner">
+											<h4>{{ each.title }}</h4>
+											<p>{% if each.tran_url %}<a href="{{ each.tran_url }}">译站访问</a>{% else %}译站-待上线{% endif %} | <a href="{{ each.origin_url }}">原站访问</a></p>
+											<p>{{ each.desc }}</p>
+										</div>
+									</article>
+                                    {{ each.title }}
+                                    {% endfor %}
+								</div>
+							</div>
+						</section>
+						
+					<!-- Three -->
+						<section id="three">
+							<div class="container">
+								<h3>使用工具</h3>
+								<p>在翻译项目中借助的第三方工具，包括以下</p>
+								<ul class="feature-icons">
+									<li class="fa-code"><a href="http://markdowntutorial.com/">MarkDown</a></li>
+									<li class="fa-users"><a href="https://github.com/">Github</a></li>
+									<li class="fa-shekel"><a href="http://sphinx-doc.org/">Sphinx-doc</a></li>
+								</ul>
+							</div>
+						</section>
+				
+					<section id="four" class="four">
+						<div class="container">
+					
+							<header>
+								<h2>译者</h2>
+							</header>
+                        <div class="row">
+                        {% for each in users %}
+                        <div class="4u">
+
+							<!-- Feature -->
+								<section>
+									<span class="image fit"><img src="{{ MEDIA_URL }}{{ each.userprofile.avatar }}" alt="" /></span>
+									<header>
+										<h3 class="align-center">{{ each.userprofile.nickname }}</h3>
+									</header>
+                              <p>
+                              邮箱: {{ each.email }}<br>
+                              网站: {{ each.userprofile.website }}<br>
+                              位置: {{ each.userprofile.location }}<br>
+                              签名: {{ each.userprofile.signature }}</p>
+								</section>
+
+						</div>
+
+                            {% endfor %}
+                        </div>
+                        </div>
+					</section>
+
+					<!-- Four -->
+						<section id="five">
+							<div class="container">
+								<h3>联系我们</h3>
+								<p>如果你有兴趣参与我们的计划，请联系我们。</p>
+								<form method="post" action="#">
+									<div class="row uniform">
+										<div class="6u 12u(3)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="6u 12u(3)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+									</div>
+									<div class="row uniform">
+										<div class="12u"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+									</div>
+									<div class="row uniform">
+										<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+									</div>
+									<div class="row uniform">
+										<div class="12u">
+											<ul class="actions">
+												<li><input type="submit" class="special" value="发送信息" /></li>
+												<li><input type="reset" value="重置" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</div>
+						</section>
+						
+			<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<ul class="copyright">
+							<li>&copy; trans-group. All rights reserved.</li><li></li>
+						</ul>
+					</div>
+				</section>
+			
+		</div>
+        </div>
+	</body>
+</html>

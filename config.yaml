@@ -1,0 +1,20 @@
+name: tran
+version: 1
+worker: django | wsgi
+
+libraries:
+- name: "django"
+  version: "1.5"
+
+- name: "PIL"
+  version: "1.1.7"
+
+- name: "Pillow"
+  version: "2.2.1"
+
+handlers:
+- url: /static/
+  static_path: static
+
+- url: /favicon.ico
+  static_path: favicon.ico
